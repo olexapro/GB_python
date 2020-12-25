@@ -19,6 +19,7 @@
 
 info = """добавить - добавление товара\n\
 товары - просмотр товаров\n\n
+анализ - просмотр товаров\n\n
 """
 form = 'формат ввода: ключевое слово\n'
 
@@ -39,7 +40,9 @@ while True:
         for i in base:
             for j in i[1]:
                 print(i[1][j], end=' / ')
-            
+            print('\n')
+            for j in i[1]:
+                print(i[1][j], end=' / ')
             print('\n')
 
     elif user_input == 'выход':
