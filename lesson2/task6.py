@@ -18,12 +18,12 @@
 """
 
 info = """добавить - добавление товара\n\
-товары - просмотр товаров\n\n
-анализ - просмотр товаров\n\n
+товары - просмотр товаров\n\
+анализ - сбор данных из базы\n\n
 """
 form = 'формат ввода: ключевое слово\n'
 
-base = list()
+base = []
 
 while True:
     user_input = input(form+info).lower()
@@ -32,19 +32,29 @@ while True:
         base.append((len(base), {'название':            base_input[0],
                                  'цена товара':         base_input[1],
                                  'количество':          base_input[2], 
-                                 'еденица измерения':   base_input[3]
-                                 }))
+                                 'еденица измерения':   base_input[3]}))
 
     elif user_input == 'товары':
-        inp = input('')
         for i in base:
             for j in i[1]:
-                print(i[1][j], end=' / ')
-            print('\n')
+                print(j, end=' / ')
+            print('\n', i[0], end=' ')
             for j in i[1]:
-                print(i[1][j], end=' / ')
-            print('\n')
+                print( i[1][j], end=' / ')
+            print('\n\n')
+    
+    elif user_input == 'анализ':
+        base_analyze = { 'название':            [],
+                         'цена товара':         [],
+                         'количество':          [], 
+                         'еденица измерения':   []}
+        for i in base:
+            for j in i[1]:
+                base_analyze[j].append(i[1][j])
+        
+        for i in base_analyze:
+            print(i, base_analyze[i][:])
+        print('\n\n')
 
     elif user_input == 'выход':
         break
-        
