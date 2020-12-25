@@ -23,12 +23,11 @@ info = """добавить - добавление товара\n\
 form = 'формат ввода: ключевое слово\n'
 
 base = list()
-print(len(base))
 
 while True:
     user_input = input(form+info).lower()
     if user_input == 'добавить':
-        base_input = input(form + 'название товара_цена_количество_еденица измерения\n').split('_')
+        base_input = input(form + 'название товара__цена__количество__еденица измерения\n').split('__')
         base.append((len(base), {'название':            base_input[0],
                                  'цена товара':         base_input[1],
                                  'количество':          base_input[2], 
@@ -36,10 +35,8 @@ while True:
                                  }))
 
     elif user_input == 'товары':
+        inp = input('')
         for i in base:
-            for j in i[1]:
-                print(j, end=' / ')
-            print('\n')
             for j in i[1]:
                 print(i[1][j], end=' / ')
             
@@ -47,7 +44,4 @@ while True:
 
     elif user_input == 'выход':
         break
-    
-print(base)
-(0, {'название': {'компьютер'}, 'цена товара': {'20000'}, 'количество': {'10'}, 'еденица измерения': {'шт.'}}) 
-(1, {'название': {'компьютер'}, 'цена товара': {'20000'}, 'количество': {'10'}, 'еденица измерения': {'шт.'}})
+        
