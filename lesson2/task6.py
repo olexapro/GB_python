@@ -41,7 +41,7 @@ while True:
                 print(j, end=' / ')
             print('\n')
             for j in i[1]:
-                print(i[1][j], end=' ')
+                print(i[1][j], end=' / ')
             
             print('\n')
 
