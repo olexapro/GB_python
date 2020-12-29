@@ -94,4 +94,4 @@ def title_first(x):
     
 while True:
     raw_inp = input().split(' ')
-    print([title_first(i) for i in raw_inp])
+    priprint(' '.join([title_first(i) for i in raw_inp])
