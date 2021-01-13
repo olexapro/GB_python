@@ -8,7 +8,8 @@
 """
 
 
-def func1(list1):
-    return [i for i in list1 if i]
+def unrepeated(list1):
+    return [i for i in list1 if list1.count(i)<2]
 
-print(func1([2, 2, 2, 7, 23, 1, 44, 44, 3, 2, 10, 7, 4, 11]))
+
+print(unrepeated([2, 2, 2, 7, 23, 1, 44, 44, 3, 2, 10, 7, 4, 11]))
