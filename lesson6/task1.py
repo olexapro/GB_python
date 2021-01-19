@@ -34,7 +34,7 @@ class TrafficLight:
 
         # сделать это
         # if input()==status:
-        #     self.running()
+        #     self.status()
 
         # вместо этого
         self.status()
