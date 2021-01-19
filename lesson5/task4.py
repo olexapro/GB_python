@@ -23,8 +23,7 @@ with open('task4', mode='r+', encoding='utf-8') as file:
     for i in file.readlines():
         list1.append(i.replace('\n', '').split(' - '))
 
-    for j in list1:
-        filename = f'{j[0]}.txt'
-        with open(filename, mode='w', encoding='utf-8') as f:
-            print('created file ' + filename)
-            f.write(var1[j[0]] + ' - ' + j[1])
+    filename = 'task4_a.txt'
+    with open(filename, mode='w', encoding='utf-8') as f:
+        for j in list1:
+            f.write(var1[j[0]] + ' - ' + j[1] + '\n')

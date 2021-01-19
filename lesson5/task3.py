@@ -14,8 +14,7 @@ with open('task3', encoding='utf-8') as file:
 
     list1 = []
     for line in file:
-        # print(line)
-        if int(line[1])<20000:
+        if int(line[1]) < 20000:
             print(line[0])
         else:
             list1.append(int(line[1]))
