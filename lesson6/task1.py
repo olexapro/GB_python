@@ -33,7 +33,7 @@ class TrafficLight:
         """
 
         # сделать это
-        # if input()==status:
+        # if input()=='stat':
         #     self.status()
 
         # вместо этого
