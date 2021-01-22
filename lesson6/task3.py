@@ -1,5 +1,5 @@
-"""
 
+"""
     3.
     Реализовать базовый класс Worker (работник), в котором определить атрибуты:
     name, surname, position (должность), income (доход).
@@ -11,7 +11,6 @@
     Проверить работу примера на реальных данных
     (создать экземпляры класса Position, передать данные,
     проверить значения атрибутов, вызвать методы экземпляров).
-
 """
 
 
@@ -22,17 +21,18 @@ class Worker:
         self.position = position
         self.wage = wage
         self.bonus = bonus
-        self.__income = {"wage": self.wage, "bonus": self.bonus}
+        self._income = {"wage": self.wage, "bonus": self.bonus}
 
 
 class Position(Worker):
-    def get_full_name(self):
-        print(self.__income['wage'] + self.__income['bonus'])
 
     def get_total_income(self):
-        print('name = ', self.name, 'surname = ', self.surname, sep='\n')
+        print(f'{self.name} total income: ', int(self._income['wage']) + int(self._income['bonus']))
+
+    def get_full_name(self):
+        print(f'name: {self.name} \nsurname: {self.surname}')
 
 
-w = Position('a', 'b', 'c', 'd', 'e')
-w.get_total_income()
+w = Position('Alex', 'b', 'c', '10', '5')
 w.get_full_name()
+w.get_total_income()
