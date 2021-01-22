@@ -10,46 +10,20 @@
  и при его нарушении выводить соответствующее сообщение и завершать скрипт.
 """
 
+
 from time import sleep
 
 
 class TrafficLight:
     def __init__(self):
-        self.__color = 'red'
-        self.running()
+        self.__color = (['red', 7], ['yellow', 2], ['green', 5])
 
     def running(self):
         while True:
-            self.next_color()
-
-    def status(self):
-        print(f'{self.__color} Trafficlight')
-
-    def next_color(self):
-        """
-            концепцию проверки режимов я не понял,
-            типо нужно было разпараллелить процесс и спрашивать у одного класса и ввод, и вывод
-             Пример(закоментирован ниже)
-        """
-
-        # сделать это
-        # if input()=='stat':
-        #     self.status()
-
-        # вместо этого
-        self.status()
-
-        if self.__color == 'red':
-            sleep(7)
-            self.__color = 'yellow'
-
-        elif self.__color == 'yellow':
-            sleep(5)
-            self.__color = 'green'
-
-        elif self.__color == 'green':
-            sleep(2)
-            self.__color = 'red'
+            for i in self.__color:
+                print(f'{i[0]} Trafficlight')
+                sleep(i[1])
 
 
 a = TrafficLight()
+a.running()
