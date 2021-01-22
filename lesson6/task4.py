@@ -10,13 +10,13 @@ class Car:
         print(self.name)
     
     def go(self):
-        ptint('going')
+        print('going')
         
     def stop(self):
-        ptint('stoped')
+        print('stoped')
         
     def turn(self, direction):
-        ptint(f'turning {direction}')
+        print(f'turning {direction}')
         
         
 class TownCar(Car):
@@ -60,5 +60,9 @@ pc = PoliceCar('PoliceCar', 'black', 70, True)
 for i in [tc, sc, wc, pc]:
     i.car_name()
     i.show_speed()
+    i.go()
+    i.stop()
+    i.turn('left')
+    i.turn('right')
     print(i.is_police)
     print()
