@@ -29,44 +29,42 @@ class Matrix:
         return list1
 
     def __add__(self, other):
-        if len(self.matrix) <= len(other.matrix):
-            print('M1 <= M2')
-            # если матрица1 меньше или равна матрице2 по количеству строк
+        if len(self.matrix) <= len(other.matrix):  # print('M1 <= M2')
 
+            # если матрица1 меньше или равна матрице2 по количеству строк
             for i in range(len(self.matrix)):
-                if len(self.matrix[i]) > len(other.matrix[i]):
+                if len(self.matrix[i]) > len(other.matrix[i]):  # print('M1[i] > M2[i]')
+
                     # если длинна матрицы 1 больше матрицы 2 то принимать значение первой как единственные
-                    print('M1[i] > M2[i]')
                     for j in range(len(other.matrix[i])):
                         self.matrix[i][j] = self.matrix[i][j] + other.matrix[i][j]
 
                     for k in range(len(other.matrix[i]) - len(self.matrix[i]), 0, -1):
                         self.matrix[i][k + len(other.matrix[i])] = self.matrix[i][k]
 
-                else:
+                else:  # print('M1[i] <= M2[i]')
+
                     # что бы не писать еще два ветвления я сделал так
-                    print('M1[i] <= M2[i]')
                     for j in range(len(self.matrix[i])):
                         self.matrix[i][j] = self.matrix[i][j] + other.matrix[i][j]
 
                     if len(self.matrix[i]) < len(other.matrix[i]):
                         # если длинна матрицы 2 больше матрицы 1 то принимать значения второй как единственные
-                        print('M1[i] < M2[i]')
+                        # print('M1[i] < M2[i]')
                         k = abs(len(self.matrix[i]) - len(other.matrix[i]))
                         self.matrix[i] += other.matrix[i][-k:]
 
             if len(self.matrix) < len(other.matrix):
-                print('M1 < M2')
+                # print('M1 < M2')
                 self.matrix += other.matrix[-1:]
 
-        else:
-            # если матрица1 больше матрицы2 по количеству строк
-            print('M1 > M2')
+        else:  # print('M1 > M2')
 
-            for i in range(len(self.matrix) - len(self.matrix) - len(other.matrix)):
+            # если матрица1 больше матрицы2 по количеству строк
+            for i in range(len(other.matrix)):
                 if len(self.matrix[i]) > len(other.matrix[i]):
                     # если длинна матрицы 1 больше матрицы 2 то принимать значение первой как единственные
-                    print('M1[i] > M2[i]')
+                    # print('M1[i] > M2[i]')
                     for j in range(len(other.matrix[i])):
                         self.matrix[i][j] = self.matrix[i][j] + other.matrix[i][j]
 
@@ -74,14 +72,14 @@ class Matrix:
                         self.matrix[i][k + len(other.matrix[i])] = self.matrix[i][k]
 
                 else:
-                    # что бы не писать еще два ветвления я сделал так
-                    print('M1[i] <= M2[i]')
+                    # что бы не писать еще ветвления я сделал так
+                    # print('M1[i] <= M2[i]')
                     for j in range(len(self.matrix[i])):
                         self.matrix[i][j] = self.matrix[i][j] + other.matrix[i][j]
 
                     if len(self.matrix[i]) < len(other.matrix[i]):
                         # если длинна матрицы 2 больше матрицы 1 то принимать значения второй как единственные
-                        print('M1[i] < M2[i]')
+                        # print('M1[i] < M2[i]')
                         k = abs(len(self.matrix[i]) - len(other.matrix[i]))
                         self.matrix[i] += other.matrix[i][-k:]
 
@@ -91,22 +89,23 @@ class Matrix:
         return Matrix([[randint(0, nums) for _ in range(x)] for _ in range(y)])
 
 
-diap_i = 3
-diap_j = 5
-for i in range(1, diap_i):
-    for j in range(1, diap_j):
-        m1 = Matrix().generate(i, j)
-        m2 = Matrix().generate(i, j)
-        print(f'M1: {m1}\nM2: {m2}\nm21: {m2 + m1}')
+i = 3
+j = 5
 
-for i in range(1, diap_i):
-    for j in range(1, diap_j):
-        m1 = Matrix().generate(i, j)
-        m2 = Matrix().generate(i + 3, j + 3)
-        print(f'M1: {m1}\nM2: {m2}\nm21: {m2 + m1}')
+print('массивы одинаковые', ' - ' * 5 * 5)
+m1 = Matrix().generate(i, j)
+m2 = Matrix().generate(i, j)
+print(f'M1: \n{m1}\nM2: \n{m2}\nm21: \n{m2 + m1}\n', '- '*10)
 
-for i in range(1, diap_i):
-    for j in range(1, diap_j):
-        m1 = Matrix().generate(i + 3, j + 3)
-        m2 = Matrix().generate(i, j)
-        print(f'M1: {m1}\nM2: {m2}\nm21: {m2 + m1}')
+print('массив1 < массив2', ' - ' * 5 * 5)
+m1 = Matrix().generate(i, j)
+m2 = Matrix().generate(i + 3, j + 3)
+print(f'M1: \n{m1}\nM2: \n{m2}\nm21: \n{m2 + m1}\n', '- '*10)
+
+print('массив1 > массив2', ' - ' * 5 * 5)
+m1 = Matrix().generate(i + 3, j + 3)
+m2 = Matrix().generate(i, j)
+print(f'M1: \n{m1}\nM2: \n{m2}\nm21: \n{m2 + m1}\n','- '*10)
+
+m21 = m1+m2
+print('888'*100,'\n', m21+ m1)
