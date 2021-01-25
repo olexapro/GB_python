@@ -21,9 +21,9 @@ class Matrix:
 
     def __str__(self):
         list1 = ''
-        for i in range(len(self.matrix)):
-            for j in self.matrix[i]:
-                list1 += str(j) + ' '
+        for z in range(len(self.matrix)):
+            for x in self.matrix[z]:
+                list1 += str(x) + ' '
             list1 += '\n'
 
         return list1
